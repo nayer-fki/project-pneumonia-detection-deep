@@ -1,0 +1,31 @@
+Node.js dependencies
+node_modules/
+app/frontend/node_modules/
+app/backend/node_modules/
+
+Build directories
+app/frontend/build/
+
+Environment files
+.env
+app/backend/.env
+app/frontend/.env
+
+Large model files
+models/
+app/backend/cnn_augmented_model.h5
+
+Logs
+app/backend/pneumonia_detection.log
+
+Python cache
+pycache/
+*.pyc
+
+Docker and IDE files
+.dockerignore
+.vscode/
+.idea/
+
+Git backups
+.git-backup/

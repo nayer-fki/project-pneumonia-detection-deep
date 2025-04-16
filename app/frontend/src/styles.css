@@ -1,0 +1,335 @@
+/* styles.css */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #F5F5F5;
+}
+
+/* Home Page Styles */
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(90deg, #1565C0, #42A5F5);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  opacity: 0.9;
+  font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Main Content Styles */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section {
+  margin-bottom: 70px;
+}
+
+.section h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1565C0;
+  position: relative;
+}
+
+.section h2::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: #42A5F5;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+}
+
+.section p {
+  color: #37474F;
+  line-height: 1.8;
+  font-size: 1.2rem;
+  max-width: 800px;
+}
+
+/* Example Grid (Prediction Examples) */
+.example-grid, .prediction-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+.example-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.example-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #263238;
+}
+
+.example-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ECEFF1;
+}
+
+.example-card p {
+  font-size: 1.1rem;
+  color: #546E7A;
+}
+
+/* Options Grid (Explore More) */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.option-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.option-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(90deg, #1565C0, #42A5F5);
+  color: white;
+}
+
+.option-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1565C0;
+}
+
+.option-card p {
+  font-size: 1rem;
+  color: #546E7A;
+}
+
+.option-card:hover h3,
+.option-card:hover p {
+  color: white;
+}
+
+/* Button Section (Try the Prediction Tool) */
+.button-section {
+  text-align: center;
+}
+
+.predict-button {
+  background: linear-gradient(90deg, #1565C0, #42A5F5);
+  color: white;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.predict-button:hover {
+  background: linear-gradient(90deg, #0D47A1, #1976D2);
+  transform: scale(1.05);
+}
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(90deg, #263238, #455A64);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Predict Page Styles */
+.predict-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.predict-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.predict-form input[type="file"] {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 2px dashed #42A5F5;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #546E7A;
+}
+
+.predict-form button {
+  background: linear-gradient(90deg, #1565C0, #42A5F5);
+  color: white;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.predict-form button:disabled {
+  background: #B0BEC5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.predict-form button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #0D47A1, #1976D2);
+  transform: scale(1.05);
+}
+
+.example-card {
+  cursor: pointer;
+}
+
+.example-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.selected-image {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.selected-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #ECEFF1;
+}
+
+.result-section {
+  text-align: center;
+}
+
+.result-card {
+  background-color: white;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+  transform: scale(1.02);
+}
+
+.result-card h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1565C0;
+}
+
+.result-card p {
+  font-size: 1.4rem;
+  color: #37474F;
+}
+
+/* Video Animation Styles */
+.video-section {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* New Page Styles */
+.info-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.back-button {
+  background: linear-gradient(90deg, #1565C0, #42A5F5);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 30px;
+}
+
+/* Disease Comment Styles */
+.disease-comment {
+  color: #D32F2F; /* Red color to indicate warning */
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 15px;
+  background-color: #FFEBEE; /* Light red background for emphasis */
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.back-button:hover {
+  background: linear-gradient(90deg, #0D47A1, #1976D2);
+}
