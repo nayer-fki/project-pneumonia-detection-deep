@@ -39,7 +39,9 @@ function Predict() {
         formData.append('file', blob, selectedImage.split('/').pop());
       }
 
-      const result = await axios.post('http://localhost:8000/predict', formData, {
+      // Use REACT_APP_API_URL environment variable
+      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8000";
+      const result = await axios.post(`${apiUrl}/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -98,8 +100,7 @@ function Predict() {
               <p>Confidence: {(prediction.confidence * 100).toFixed(2)}%</p>
               {prediction.label === "Pneumonia" && (
                 <p className="disease-comment">
-                  
-                      Disease detected: Pneumonia. Please consult a doctor for a thorough diagnosis.
+                  Disease detected: Pneumonia. Please consult a doctor for a thorough diagnosis.
                 </p>
               )}
             </div>
