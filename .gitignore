@@ -29,3 +29,6 @@ Docker and IDE files
 
 Git backups
 .git-backup/
+
+app/frontend/.expo/README.md
+app/frontend/.expo/settings.json
