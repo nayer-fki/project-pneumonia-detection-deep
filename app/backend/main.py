@@ -60,27 +60,23 @@ class PredictionResponse(BaseModel):
 SUPPORTED_IMAGE_FORMATS = {"image/jpeg", "image/png"}
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB in bytes
 
-# Determine model path (local or Docker)
-MODEL_PATH_LOCAL = Path(r'C:\Users\nayer\pneumonia-detection\models\cnn_augmented_model.h5')
-MODEL_PATH_DOCKER = Path(r'/app/models/cnn_augmented_model.h5')
+# Define model path for Docker/containerized environment
+MODEL_PATH = Path('/app/models/cnn_augmented_model.h5')
 
-# Check which path exists
-if MODEL_PATH_LOCAL.exists():
-    MODEL_PATH = MODEL_PATH_LOCAL
-    logger.info(f"Using local model path: {MODEL_PATH}")
-elif MODEL_PATH_DOCKER.exists():
-    MODEL_PATH = MODEL_PATH_DOCKER
-    logger.info(f"Using Docker model path: {MODEL_PATH}")
-else:
-    logger.error("Model file not found in either local or Docker path")
-    raise RuntimeError("Model file not found in either local or Docker path")
+# Check if model file exists
+if not MODEL_PATH.exists():
+    logger.error(f"Model file not found at {MODEL_PATH}")
+    raise RuntimeError(f"Model file not found at {MODEL_PATH}")
+
+logger.info(f"Using model path: {MODEL_PATH}")
 
 # Load the model
 try:
+    logger.info("Starting model loading...")
     model = tf.keras.models.load_model(MODEL_PATH)
     logger.info("Model loaded successfully")
 except Exception as e:
-    logger.error(f"Failed to load model: {str(e)}")
+    logger.error(f"Failed to load model: {str(e)}", exc_info=True)
     raise RuntimeError(f"Failed to load model: {str(e)}")
 
 @app.get("/health", status_code=status.HTTP_200_OK)

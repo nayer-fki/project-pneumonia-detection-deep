@@ -1,11 +1,11 @@
-version: '3.8'
 services:
   backend:
     image: pneumonia-backend:v1
     ports:
       - "8000:8000"
+    # Optional: Keep volume mount for local development if needed
     volumes:
-      - ./models:/app/models  # Mount the models directory if needed
+      - ./models:/app/models
     networks:
       - pneumonia-network
 

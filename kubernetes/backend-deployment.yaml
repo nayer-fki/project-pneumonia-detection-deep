@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pneumonia-backend
+  labels:
+    app: pneumonia-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pneumonia-backend
+  template:
+    metadata:
+      labels:
+        app: pneumonia-backend
+    spec:
+      containers:
+      - name: pneumonia-backend
+        image: pneumonia-backend:v1
+        imagePullPolicy: Never  # For local cluster (e.g., Docker Desktop)
+        ports:
+        - containerPort: 8000
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"   # Increased from 512Mi
+          requests:
+            cpu: "0.5"
+            memory: "512Mi" # Increased from 256Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
